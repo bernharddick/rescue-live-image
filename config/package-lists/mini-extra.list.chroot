@@ -1,2 +1,8 @@
 user-setup
 sudo
+
+#Networking
+netbase
+ifupdown
+isc-dhcp-client
+

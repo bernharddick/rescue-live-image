@@ -3,8 +3,9 @@
 set -e
 
 lb config noauto \
+	--debian-installer false \
 	--architectures amd64 \
-	-d jessie\
+	-d jessie \
 	 --apt-recommends false \
 	--debootstrap-options \"--variant=minbase\" \
 	--bootappend-live "boot=live" \
