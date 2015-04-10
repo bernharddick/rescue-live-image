@@ -5,4 +5,7 @@ set -e
 lb config noauto \
 	--architectures amd64 \
 	-d jessie\
+	 --apt-recommends false \
+	--debootstrap-options \"--variant=minbase\" \
+	--bootappend-live "boot=live" \
 	"${@}"
