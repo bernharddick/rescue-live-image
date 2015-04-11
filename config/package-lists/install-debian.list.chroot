@@ -1,0 +1,3 @@
+# Files for installing debian systems (not by debian-installer)
+debootstrap
+

@@ -1,0 +1,14 @@
+# Base tools
+man
+
+# Read/Write
+less
+vim
+
+# partitioning
+parted
+
+# networking
+ftp
+wget
+
