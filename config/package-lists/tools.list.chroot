@@ -1,5 +1,7 @@
 # Base tools
 man
+lsof
+bash-completion
 
 # Read/Write
 less
