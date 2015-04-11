@@ -1,1 +1,3 @@
+# needing build-essential for dkms builds
+build-essential
 debian-zfs
