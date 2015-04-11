@@ -2,6 +2,10 @@
 man
 lsof
 bash-completion
+screen
+htop
+ifstat
+sysstat
 
 # Read/Write
 less
