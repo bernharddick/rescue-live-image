@@ -1,0 +1,52 @@
+#!/bin/bash
+
+## root-ssh-key(7) - Set root authorized ssh key for live systems
+## Copyright (C) 2006-2014 Daniel Baumann <mail@daniel-baumann.ch>
+## Copyright (C) 2015 Bernhard Dick <bernhard@bdick.de>
+##
+## root-ssh-key comes with ABSOLUTELY NO WARRANTY; for details see COPYING.
+## This is free software, and you are welcome to redistribute it
+## under certain conditions; see COPYING for details.
+
+
+set -e
+
+Cmdline ()
+{
+	# get ssh key fro, commandline
+	if [[ ${LIVE_CONFIG_CMDLINE} =~ root-ssh-key=\"([^\"]+)\" ]]
+	then
+		ROOT_SSH_KEY="${BASH_REMATCH[1]}"
+	fi
+}
+
+Init ()
+{
+	# Checking if package is installed or already configured
+	if [ -e /var/lib/live/config/root-ssh-key ]
+	then
+		exit 0
+	fi
+
+	echo -n " root-ssh-key"
+}
+
+Config ()
+{
+	#check if key file exists
+	if [ -e /root/.ssh/authorized_keys]
+	then
+		exit 0
+	fi
+
+	mkdir -p /root/.ssh
+
+	echo $ROOT_SSH_KEY > /root/.ssh/authorized_keys
+
+	# Creating state file
+	touch /var/lib/live/config/root-ssh-key
+}
+
+Cmdline
+Init
+Config
